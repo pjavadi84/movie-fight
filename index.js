@@ -30,7 +30,7 @@ const fetchData = async searchTerm => {
   
   const onInput = async event => {
     const movies = await fetchData(event.target.value);
-    
+
     if(!movies.length){
         dropdown.classList.remove('is-active')
         return;
@@ -47,6 +47,11 @@ const fetchData = async searchTerm => {
         <img src="${imgSrc}" />
         ${movie.Title}
       `;
+
+      option.addEventListener('click', () => {
+          dropdown.classList.remove('is-active')
+          input.value = movie.Title;
+      })
   
       resultsWrapper.appendChild(option);
     }
