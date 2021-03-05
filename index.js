@@ -82,26 +82,25 @@ const runComparison = () => {
       const rightStat = rightSideStats[index];
    
       const leftSideValue = leftStat.dataset.value; // <------ BAD
-      console.log(leftSideValue);
+      
       const rightSideValue = rightStat.dataset.value; // <------ BAD
-      console.log(rightSideValue);
-   
+         
       if (rightSideValue > leftSideValue) {
-        leftStat.classList.remove('is-primary');
-        leftStat.classList.add('is-warning');
-      } else {
         rightStat.classList.remove('is-primary');
         rightStat.classList.add('is-warning');
+      } else {
+        leftStat.classList.remove('is-primary');
+        leftStat.classList.add('is-warning');
       }
     });
   };
 
 const movieTemplate = (movieDetail) => {
-
     const dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''));
     const metascore = parseInt(movieDetail.Metascore);
     const imdbRating = parseFloat(movieDetail.imdbRating);
     const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g,''));
+    debugger
     const awards = movieDetail.Awards.split(' ').reduce((prev, word)=>{
         const value = parseInt(word);
         if(isNaN(value)){
@@ -110,6 +109,7 @@ const movieTemplate = (movieDetail) => {
             return prev + value;
         }
     }, 0);
+    console.log(awards);
 
     return `
         <article class="media">
