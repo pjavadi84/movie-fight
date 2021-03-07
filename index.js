@@ -100,7 +100,7 @@ const movieTemplate = (movieDetail) => {
     const metascore = parseInt(movieDetail.Metascore);
     const imdbRating = parseFloat(movieDetail.imdbRating);
     const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g,''));
-    debugger
+    
     const awards = movieDetail.Awards.split(' ').reduce((prev, word)=>{
         const value = parseInt(word);
         if(isNaN(value)){
